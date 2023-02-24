@@ -1,7 +1,6 @@
 if getgenv().AirTeam then return end
 
 getgenv().AirTeam = {}
-local Environment = getgenv().AirTeam
 local HttpService = game:GetService("HttpService")
 
 local function Find(Table, Value)
