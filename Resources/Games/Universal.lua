@@ -4,20 +4,16 @@ local loadstring, getgenv, setclipboard, tablefind, UserInputService = loadstrin
 
 --// Loaded check
 
-if getgenv().AirTeam then return end
-
---// Environment
-
-getgenv().AirTeam = {}
+if not getgenv().AirTeam then return end
 
 --// Load Modules
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/AirTeam-Hub/main/Resources/Modules/Aimbot.lua"))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/AirTeam-Hub/main/Resources/Modules/Wall%20Hack.lua"))()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Exunys/AirTeam-Hub/main/Resources/Modules/Aimbot.lua"))()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Exunys/AirTeam-Hub/main/Resources/Modules/Wall%20Hack.lua"))()
 
 --// Variables
 
-local Library = loadstring(game:HttpGet("https://pastebin.com/raw/dCdT4KUT"))()
+local Library = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Exunys/AirTeam-Hub/main/Resources/Extras/Version.txt"))()
 local Aimbot, WallHack = getgenv().AirTeam.Aimbot, getgenv().AirTeam.WallHack
 local Parts, Fonts, TracersType = {"Head", "HumanoidRootPart", "Torso", "Left Arm", "Right Arm", "Left Leg", "Right Leg", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "LeftUpperLeg", "RightFoot", "RightLowerLeg", "LowerTorso", "RightUpperLeg"}, {"UI", "System", "Plex", "Monospace"}, {"Bottom", "Center", "Mouse"}
 
