@@ -13,7 +13,7 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Exunys/AirTeam-H
 
 --// Variables
 
-local Library = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Exunys/AirTeam-Hub/main/Resources/Extras/Version.txt"))()
+local Library = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Exunys/AirTeam-Hub/main/Resources/Modules/Library.lua"))()
 local Aimbot, WallHack = getgenv().AirTeam.Aimbot, getgenv().AirTeam.WallHack
 local Parts, Fonts, TracersType = {"Head", "HumanoidRootPart", "Torso", "Left Arm", "Right Arm", "Left Leg", "Right Leg", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "LeftUpperLeg", "RightFoot", "RightLowerLeg", "LowerTorso", "RightUpperLeg"}, {"UI", "System", "Plex", "Monospace"}, {"Bottom", "Center", "Mouse"}
 
