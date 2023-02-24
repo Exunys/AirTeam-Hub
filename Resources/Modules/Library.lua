@@ -1,5 +1,5 @@
 local library = {
-	Version = game:HttpGetAsync("https://raw.githubusercontent.com/Exunys/AirTeam-Hub/main/Resources/Extras/Version.txt"),
+	Version = string.gsub(game:HttpGetAsync("https://raw.githubusercontent.com/Exunys/AirTeam-Hub/main/Resources/Extras/Version.txt"), "%s", ""),
 	WorkspaceName = "ERROR N-A",
 	flags = {},
 	signals = {},
