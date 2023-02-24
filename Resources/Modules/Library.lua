@@ -1,5 +1,5 @@
 local library = {
-	Version = game:HttpGet("https://pastebin.com/raw/tjL9CE9t"),
+	Version = game:HttpGetAsync("https://raw.githubusercontent.com/Exunys/AirTeam-Hub/main/Resources/Extras/Version.txt"),
 	WorkspaceName = "ERROR N-A",
 	flags = {},
 	signals = {},
