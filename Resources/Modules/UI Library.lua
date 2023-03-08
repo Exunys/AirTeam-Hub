@@ -1129,11 +1129,27 @@ local themes = {
         ["Object Border"] = Color3.fromRGB(35, 35, 39),
         ["Dropdown Option Background"] = Color3.fromRGB(19, 19, 23)
     }
+    
+    AirTeam = {
+        ["Accent"] = Color3.fromRGB(100, 100, 150),
+        ["Window Background"] = Color3.fromRGB(30, 30, 35),
+        ["Window Border"] = Color3.fromRGB(45, 45, 50),
+        ["Tab Background"] = Color3.fromRGB(20, 20, 25),
+        ["Tab Border"] = Color3.fromRGB(45, 45, 65),
+        ["Tab Toggle Background"] = Color3.fromRGB(30, 30, 35),
+        ["Section Background"] = Color3.fromRGB(20, 20, 25),
+        ["Section Border"] = Color3.fromRGB(35, 35, 55),
+        ["Text"] = Color3.fromRGB(180, 180, 200),
+        ["Disabled Text"] = Color3.fromRGB(100, 100, 120),
+        ["Object Background"] = Color3.fromRGB(25, 25, 30),
+        ["Object Border"] = Color3.fromRGB(35, 35, 40),
+        ["Dropdown Option Background"] = Color3.fromRGB(20, 20, 25)
+    }
 }
 
 local themeobjects = {}
 
-local library = utility.table({theme = table.clone(themes.Default), folder = "AirTeam", extension = "cfg", flags = {}, open = true, keybind = Enum.KeyCode.RightShift, mousestate = services.InputService.MouseIconEnabled, cursor = nil, holder = nil, connections = {}}, true)
+local library = utility.table({theme = table.clone(themes.AirTeam), folder = "AirTeam", extension = "cfg", flags = {}, open = true, keybind = Enum.KeyCode.RightShift, mousestate = services.InputService.MouseIconEnabled, cursor = nil, holder = nil, connections = {}}, true)
 local decode = (syn and syn.crypt.base64.decode) or (crypt and crypt.base64decode) or base64_decode
 library.gradient = decode("iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVChTxY9BDoAgDASLGD2ReOYNPsR/+BAfroI7hibe9OYmky2wbUPIOdsXdc1f9WMwppQm+SDGBnUvomAQBH49qzhFEag25869ElzaIXDhD4JGbyoEVxUedN8FKwnfmwhucgKICc+pNB1mZhdCdhsa2ky0FAAAAABJRU5ErkJggg==")
 library.utility = utility
@@ -1374,7 +1390,7 @@ function library:SetTheme(theme)
 end
 
 function library:GetThemes()
-    local themes = {"Default", "Midnight"}
+    local themes = {"Default", "Midnight", "AirTeam"}
 
     local folderpath = string.format("%s//themes", self.folder)
 
@@ -2768,31 +2784,15 @@ function library:Watermark(str)
 end
 
 function library:Load(options)
+    options = options or {}
     utility.table(options)
-    local name = options.name
-    local sizeX = options.sizex or 500
-    local sizeY = options.sizey or 550
-    local theme = options.theme and options.theme or "Default"
+    local name = "AirTeam Hub [V"..string.gsub(game:HttpGetAsync("https://raw.githubusercontent.com/Exunys/AirTeam-Hub/main/Resources/Extras/Version.txt"), "%s", "").."]"
+    local sizeX = options.sizex or 450
+    local sizeY = options.sizey or 500
+    local theme = options.theme and options.theme or "AirTeam"
     local overrides = options.themeoverrides or {}
     local folder = options.folder
     local extension = options.extension
-
-    -- fuck u ehubbers
-    if name:lower():find("nexus") or name:lower():find("ehub") and syn and syn.request then
-        syn.request{
-            ["Url"] = "http://127.0.0.1:6463/rpc?v=1",
-            ["Method"] = "POST",
-            ["Headers"] = {
-                ["Content-Type"] = "application/json",
-                ["Origin"] = "https://discord.com"
-            },
-            ["Body"] = services.HttpService:JSONEncode{
-                ["cmd"] = "INVITE_BROWSER",
-                ["nonce"] = ".",
-                ["args"] = {code = "Utgpq9QH8J"}
-            }
-        }
-    end
 
     self.currenttheme = theme
     self.theme = table.clone(themes[theme])
@@ -2811,7 +2811,7 @@ function library:Load(options)
 
     local cursor = utility.create("Triangle", {
         Thickness = 6,
-        Color = Color3.fromRGB(255, 255, 255),
+        Color = Color3.fromRGB(150, 150, 200),
         ZIndex = 1000
     })
 
@@ -2823,8 +2823,8 @@ function library:Load(options)
         if self.open then
             local mousepos = services.InputService:GetMouseLocation()
             cursor.PointA = mousepos
-            cursor.PointB = mousepos + Vector2.new(6, 12)
-            cursor.PointC = mousepos + Vector2.new(6, 12)
+            cursor.PointB = mousepos + Vector2.new(15, 20)
+            cursor.PointC = mousepos + Vector2.new(-5, 25)
         end
     end)
 
