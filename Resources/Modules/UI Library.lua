@@ -2731,10 +2731,6 @@ function library.createkeybind(default, parent, blacklist, flag, callback, offse
     return keybindtypes
 end
 
-function library:SetGameName(str)
-    loadedGame = str 
-end
-
 function library:Watermark(str)
     local size = utility.textlength(str, Drawing.Fonts.Plex, 13).X
 
@@ -3810,4 +3806,7 @@ function library:Load(options)
     return windowtypes
 end
 
-return library
+return function(str)
+    loadedGame = str
+    return library
+end
