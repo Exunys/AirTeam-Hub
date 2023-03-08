@@ -2819,8 +2819,8 @@ function library:Load(options)
         if self.open then
             local mousepos = services.InputService:GetMouseLocation()
             cursor.PointA = mousepos
-            cursor.PointB = mousepos + Vector2.new(5, 10)
-            cursor.PointC = mousepos + Vector2.new(0, 15)
+            cursor.PointB = mousepos + Vector2.new(10, 12.5)
+            cursor.PointC = mousepos + Vector2.new(0, 20)
             cursor.Filled = true
         end
     end)
