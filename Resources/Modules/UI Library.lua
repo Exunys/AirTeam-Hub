@@ -1131,7 +1131,7 @@ local themes = {
 
 local themeobjects = {}
 
-local library = utility.table({theme = table.clone(themes.Default), folder = "vozoiduilib", extension = "vozoid", flags = {}, open = true, keybind = Enum.KeyCode.RightShift, mousestate = services.InputService.MouseIconEnabled, cursor = nil, holder = nil, connections = {}}, true)
+local library = utility.table({theme = table.clone(themes.Default), folder = "AirTeam", extension = "cfg", flags = {}, open = true, keybind = Enum.KeyCode.RightShift, mousestate = services.InputService.MouseIconEnabled, cursor = nil, holder = nil, connections = {}}, true)
 local decode = (syn and syn.crypt.base64.decode) or (crypt and crypt.base64decode) or base64_decode
 library.gradient = decode("iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVChTxY9BDoAgDASLGD2ReOYNPsR/+BAfroI7hibe9OYmky2wbUPIOdsXdc1f9WMwppQm+SDGBnUvomAQBH49qzhFEag25869ElzaIXDhD4JGbyoEVxUedN8FKwnfmwhucgKICc+pNB1mZhdCdhsa2ky0FAAAAABJRU5ErkJggg==")
 library.utility = utility
@@ -1211,7 +1211,7 @@ function library:SaveConfig(name, universal)
         assert(self.extension, "No file extension specified")
 
         local configtbl = {}
-        local placeid = universal and "universal" or game.PlaceId
+        local placeid = universal and "Universal" or game.PlaceId
 
         for flag, _ in next, flags do
             if not table.find(configignores, flag) then
@@ -1249,7 +1249,7 @@ function library:DeleteConfig(name, universal)
     assert(self.folder, "No folder specified")
     assert(self.extension, "No file extension specified")
 
-    local placeid = universal and "universal" or game.PlaceId
+    local placeid = universal and "Universal" or game.PlaceId
 
     local folderpath = string.format("%s//%s", self.folder, placeid)
     local filepath = string.format("%s//%s.%s", folderpath, name, self.extension)
@@ -1264,7 +1264,7 @@ function library:LoadConfig(name, universal)
         assert(self.folder, "No folder specified")
         assert(self.extension, "No file extension specified")
 
-        local placeid = universal and "universal" or game.PlaceId
+        local placeid = universal and "Universal" or game.PlaceId
 
         local folderpath = string.format("%s//%s", self.folder, placeid)
         local filepath = string.format("%s//%s.%s", folderpath, name, self.extension)
