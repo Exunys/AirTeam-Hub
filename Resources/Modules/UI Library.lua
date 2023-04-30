@@ -3804,6 +3804,14 @@ function library:Load(options)
         return tabtypes
     end
 
+    do
+        local oldPos = holder.Position
+        holder.Position = Vector2.new(0, 0)
+        task.delay(0.25, function()
+            holder.Position = oldPos
+        end)
+    end
+
     return windowtypes
 end
 
